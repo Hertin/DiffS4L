@@ -1,0 +1,58 @@
+base_config:
+  - ./base.yaml
+
+label_dir: 'manifest/mls_german100/wav2vec_mls_german100_mls_german100_l5_v500'
+spkemb_path: 'manifest/mls_german100/mlsde_spkemb_v2.pk'
+manifest_dir: 'manifest/mls_german100'
+feat_dir: 'feats/mel_mls_german100_l0'
+spk_map: 'manifest/mls_german100/de_seen_speakers.json'
+phone_list_file: 'manifest/mls_german100/label_dict.txt'
+
+task_cls: egs.datasets.audio.librivox.prodiff.ProDiff_teacher_task_noprosody_mask.ProDiff_teacher_Task
+
+# diffusion
+timescale: 1
+schedule_type: 'vpsde'
+
+use_gt_dur: true
+num_test_samples: 200
+num_spk: 2338
+seed: 1234
+use_spk_id: false
+use_spk_embed: true
+use_pitch_embed: false
+use_energy_embed: false
+use_gt_dur: true
+
+mask_partial_probs: [ 0., 0., 1. ] # [ do not mask, mask all, partially mask ]
+mask_prob: 0.8
+mask_length: 10
+timesteps: 20
+dataset_cls: LabelSpeechDatasetMaskSingleFairseq
+random_spk: false
+
+audio_sample_rate: 16000
+hop_size: 256
+feat_train_nshard: 8
+feat_test_nshard: 8
+feat_dev_nshard: 1
+valid_set_name: dev
+
+audio_num_mel_bins: 80
+max_frames: 2000
+
+us_kernel: [9]
+us_stride: [5]
+us_padding: [2]
+ds_kernel: [8]
+ds_stride: [4]
+ds_padding: [2]
+
+num_heads: 4
+dec_num_heads: 4
+# residual_layers: 30
+amp: false
+
+max_updates: 600000
+num_ckpt_keep: 40
+val_check_interval: 20000

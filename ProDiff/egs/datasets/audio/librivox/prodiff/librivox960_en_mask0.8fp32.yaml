@@ -1,0 +1,57 @@
+base_config:
+  - ./base.yaml
+
+label_dir: 'manifest/Librispeech960-emergent/wav2vec-lsp100_LibriSpeech100-wavenet_l5_v500'
+spkemb_path: 'manifest/LibriSpeech100/lsp_spkemb_all.pk'
+manifest_dir: 'manifest/Librispeech960-emergent'
+feat_dir: '/gpfs/u/scratch/SPAU/shared/dataset/emergent_lang/mel_Librispeech960-emergent_l0'
+spk_map: 'manifest/Librispeech960-emergent/en960_seen_speakers.json'
+phone_list_file: 'manifest/LibriSpeech100/label_dict.txt'
+
+task_cls: egs.datasets.audio.librivox.prodiff.ProDiff_teacher_task_noprosody_mask.ProDiff_teacher_Task
+
+# diffusion
+timescale: 1
+schedule_type: 'vpsde'
+
+use_gt_dur: true
+num_test_samples: 200
+num_spk: 2338
+seed: 1234
+use_spk_id: false
+use_spk_embed: true
+use_pitch_embed: false
+use_energy_embed: false
+use_gt_dur: true
+
+mask_partial_probs: [ 0., 0., 1. ] # [ do not mask, mask all, partially mask ]
+mask_prob: 0.8
+mask_length: 10
+timesteps: 20
+dataset_cls: LabelSpeechDatasetMaskSingleFairseq
+random_spk: false
+
+audio_sample_rate: 16000
+hop_size: 256
+feat_train_nshard: 40
+feat_test_nshard: 40
+feat_dev_nshard: 1
+valid_set_name: dev
+
+audio_num_mel_bins: 80
+max_frames: 2000
+
+us_kernel: [9]
+us_stride: [5]
+us_padding: [2]
+ds_kernel: [8]
+ds_stride: [4]
+ds_padding: [2]
+
+num_heads: 4
+dec_num_heads: 4
+# residual_layers: 30
+amp: false
+max_updates: 200000
+num_ckpt_keep: 40
+val_check_interval: 20000
