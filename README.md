@@ -62,7 +62,7 @@ mv train.km dev.km test.km manifest/LibriSpeech100/wav2vec-ls100
 ```
 
 ### 2.3 Extract melspectrogram for LibriSpeech100.
-Extract melspectrogram of LibriSpeech100. ``ckpt_path`` here is not used but just a place holder.
+Extract melspectrogram of LibriSpeech100. The ``ckpt_path`` here is not used but just a place holder.
 ```
 ckpt_path="wav2vec-en-LibriSpeech100-base-s2023/checkpoint_best.pt"
 model_name="mel"
@@ -102,7 +102,7 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python tasks/run.py --config egs/datasets/au
 CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python tasks/run.py --config egs/datasets/audio/librivox/prodiff/librivox_en_mask0.yaml --exp_name librivox_en_mask0 --reset
 ```
 ### 2.5 Generate SS/DS and NC speech using DDPM
-Generate SS/DS and NC synthetic audio datasets that are both 10 times the size of original LibriSpeech100 audio using different seeds. ``librivox_en_mask0.yaml`` is the DDPM for SS/DS speech and the ``librivox_en_mask0.8.yaml`` is the DDPM for NC speech. Our HiFiGAN trained on LibriSpeech100 can be downloaded [here](https://drive.google.com/drive/folders/17UNrm6hZiiMWh8WLgJ7ui9XUZnjF2mNA?usp=share_link).
+Generate SS/DS and NC synthetic audio datasets that are both 10 times the size of original LibriSpeech100 audio using different seeds. ``librivox_en_mask0.yaml`` is the DDPM for SS/DS speech and the ``librivox_en_mask0.8.yaml`` is the DDPM for NC speech. Our HiFiGAN trained on LibriSpeech100 can be downloaded [[here]](https://drive.google.com/drive/folders/17UNrm6hZiiMWh8WLgJ7ui9XUZnjF2mNA?usp=share_link).
 ```
 pids=()
 seeds=(1 2 3 4 5 6 7 8 9 10)
@@ -149,13 +149,13 @@ fairseq-hydra-train \
     --config-name wav2vec2_base_librispeech
 ```
 ### 2.7 Evaluate Wav2vec-100R and Wav2vec-DiffS4L
-Use [libri_labels.py](https://github.com/facebookresearch/fairseq/blob/main/examples/wav2vec/libri_labels.py) to obtain transcripts for ``dev-clean`` and ``test-clean`` splits. The label dictionary can be found [here](https://dl.fbaipublicfiles.com/fairseq/wav2vec/dict.ltr.txt).
+Use [libri_labels.py](https://github.com/facebookresearch/fairseq/blob/main/examples/wav2vec/libri_labels.py) to obtain transcripts for ``dev-clean`` and ``test-clean`` splits. The label dictionary can be found [[here]](https://dl.fbaipublicfiles.com/fairseq/wav2vec/dict.ltr.txt).
 ```
 python libri_labels.py dev.tsv --output-dir . --output-name dev
 python libri_labels.py test.tsv --output-dir . --output-name test
 mv dev.ltr test.ltr manifest/LibriSpeech100
 ```
-Evaluate on ``dev-clean`` and ``test-clean`` splits using CER/WER. The ``lexicon_ltr.lst`` can be downloaded [here](https://dl.fbaipublicfiles.com/textless_nlp/gslm/eval_data/lexicon_ltr.lst).
+Evaluate on ``dev-clean`` and ``test-clean`` splits using CER/WER. The ``lexicon_ltr.lst`` can be downloaded [[here]](https://dl.fbaipublicfiles.com/textless_nlp/gslm/eval_data/lexicon_ltr.lst). The ``4-gram.bin`` can be downloaded [[here]](https://drive.google.com/file/d/1eLWJQwnk5hYVbdeHuxcuh7zEkSOmlpZc/view?usp=share_link).
 ```
 ckpt=/path/to/wav2vec/checkpoint
 manifest=manifest/LibriSpeech100
