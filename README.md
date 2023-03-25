@@ -102,7 +102,7 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python tasks/run.py --config egs/datasets/au
 CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python tasks/run.py --config egs/datasets/audio/librivox/prodiff/librivox_en_mask0.yaml --exp_name librivox_en_mask0 --reset
 ```
 ### 2.5 Generate SS/DS and NC speech using DDPM
-Generate SS/DS and NC synthetic audio datasets that are both 10 times the size of original LibriSpeech100 audio using different seeds. ``librivox_en_mask0.yaml`` is the DDPM for SS/DS speech and the ``librivox_en_mask0.8.yaml`` is the DDPM for NC speech. Our HiFiGan trained on LibriSpeech100 can be downloaded [here](https://drive.google.com/drive/folders/17UNrm6hZiiMWh8WLgJ7ui9XUZnjF2mNA?usp=share_link)
+Generate SS/DS and NC synthetic audio datasets that are both 10 times the size of original LibriSpeech100 audio using different seeds. ``librivox_en_mask0.yaml`` is the DDPM for SS/DS speech and the ``librivox_en_mask0.8.yaml`` is the DDPM for NC speech. Our HiFiGAN trained on LibriSpeech100 can be downloaded [here](https://drive.google.com/drive/folders/17UNrm6hZiiMWh8WLgJ7ui9XUZnjF2mNA?usp=share_link).
 ```
 pids=()
 seeds=(1 2 3 4 5 6 7 8 9 10)
