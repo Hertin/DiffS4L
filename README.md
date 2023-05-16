@@ -1,5 +1,5 @@
 # DiffS4L
-This repo contains code and materials for ICML2023 submission. The DiffS4L requires [Fairseq](https://github.com/facebookresearch/fairseq) and [ProDiff](https://github.com/Rongjiehuang/ProDiff) and optionally [WaveNet](https://github.com/r9y9/wavenet_vocoder) for baseline.
+This repo contains code and materials for NeurIPS2023 submission. The DiffS4L requires [Fairseq](https://github.com/facebookresearch/fairseq) and [ProDiff](https://github.com/Rongjiehuang/ProDiff) and optionally [WaveNet](https://github.com/r9y9/wavenet_vocoder) for baseline.
 ## 1. Dependencies
 ### 1.1 Install Fairseq
 ```
