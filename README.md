@@ -148,7 +148,7 @@ fairseq-hydra-train \
     --config-dir ${WORK_DIR}/config/pretraining \
     --config-name wav2vec2_base_librispeech
 ```
-### 2.7 Evaluate Wav2vec-100R and Wav2vec-DiffS4L
+### 2.7 Evaluate Wav2vec-100R and Wav2vec-DiffS4L on ASR
 Use [libri_labels.py](https://github.com/facebookresearch/fairseq/blob/main/examples/wav2vec/libri_labels.py) to obtain transcripts for ``dev-clean`` and ``test-clean`` splits. The label dictionary can be found [[here]](https://dl.fbaipublicfiles.com/fairseq/wav2vec/dict.ltr.txt).
 ```
 python libri_labels.py dev.tsv --output-dir . --output-name dev
@@ -199,4 +199,5 @@ for split in ${splits[@]}; do
 
 done
 ```
-
+### 2.8 Evaluate Wav2vec-100R and Wav2vec-DiffS4L on SUPERB benchmark
+Follow the instructions in [SUPERB](https://github.com/s3prl/s3prl) to evaluate the pretrained SSL models.
